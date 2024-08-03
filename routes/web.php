@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Home route redirecting to people index
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('people.index');
 });
+
+// Resource routes for PersonController
+Route::resource('people', PersonController::class);
